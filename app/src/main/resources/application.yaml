@@ -1,0 +1,22 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: ORDER-SERVICE
+  profiles:
+    active: native
+      
+server:
+  port: 9192
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+  
+
+
+
+  

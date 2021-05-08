@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      component: {{ .Values.component.value }}
+  template:
+    metadata:
+      labels:
+        component: {{ .Values.component.value }}
+    spec:
+      containers:
+        - name: order-service
+          image: {{ .Values.image.repository }}/{{ .Values.image.name }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 9192
